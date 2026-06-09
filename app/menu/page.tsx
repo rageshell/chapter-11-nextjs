@@ -1,11 +1,15 @@
 import Link from "next/link"
 
-// This component is async — it's a Server Component fetching data
 async function getMenu() {
-  // In Next.js, you can fetch your own API routes on the server
-  // We use the full URL here because server-side fetch needs it
-  const res = await fetch("http://localhost:3000/api/menu")
-  return res.json()
+  // Import the data directly instead of fetching from localhost
+  const menu = [
+    { id: "1", name: "Barramundi", price: 38, category: "Mains" },
+    { id: "2", name: "Beef Cheek", price: 42, category: "Mains" },
+    { id: "3", name: "Burrata", price: 22, category: "Starters" },
+    { id: "4", name: "Chips", price: 12, category: "Starters" },
+    { id: "5", name: "Sticky Date Pudding", price: 16, category: "Desserts" },
+  ]
+  return menu
 }
 
 export default async function MenuPage() {
